@@ -51,9 +51,40 @@ Build the project and run the API server using the following command:
 go run main.go
 ```
 
+### Flag
+```
+An exchange rate API which read the config
+        file of the currencies, and calculate the amount 
+        for users
+
+Usage:
+  api [flags]
+
+Flags:
+  -c, --config string   set the config file (default "./config/currencies_config.json")
+  -h, --help            help for api
+  -t, --toggle          Help message for toggle
+```
+
+## Test the project:
+The testing data will be generated randomly, and the exchange rate will be config inside `./config/currencies_config_test.json`
+```
+go test
+```
+
 ## Access the API: 
 Use your preferred API client (e.g., curl, Postman) to access the API. The endpoint for currency conversion is as follows:
 
-```GET /convert?source=USD&target=JPY&amount=$1,525```
+```
+GET /convert?source=USD&target=JPY&amount=$1,525
+```
 
 Replace source, target, and amount query parameters to perform different currency conversions.
+
+Status OK 200
+```
+{
+    "amount": "$170496.53",
+    "msg": "success"
+}
+```

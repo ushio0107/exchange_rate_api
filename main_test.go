@@ -24,9 +24,7 @@ func TestHandleCurrencyConversion(t *testing.T) {
 	er := a.APIExchangeRates()
 	rand.Seed(time.Now().Unix())
 
-	numTests := 10
-
-	for i := 0; i < numTests; i++ {
+	for i := 0; i < 10; i++ {
 		sourceCurrencies := []string{"USD", "JPY", "TWD"}
 		targetCurrencies := []string{"USD", "JPY", "TWD"}
 		source := sourceCurrencies[rand.Intn(len(sourceCurrencies))]
