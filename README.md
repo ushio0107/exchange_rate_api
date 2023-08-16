@@ -88,3 +88,9 @@ Status OK 200
     "msg": "success"
 }
 ```
+
+## Deploy to AWS
+URL: https://mj25ng4oec.execute-api.us-east-1.amazonaws.com/default
+Using API Gateway calling Lambda function
+Use Postman
+![image](./files/aws_rest_api.png)

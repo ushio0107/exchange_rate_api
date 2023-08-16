@@ -1,6 +1,10 @@
 package api
 
-import "log"
+import (
+	"log"
+
+	"github.com/apex/gateway"
+)
 
 func NewServer(cfg *Config) (*API, error) {
 	a, err := NewSettings(cfg)
@@ -13,5 +17,7 @@ func NewServer(cfg *Config) (*API, error) {
 
 func (a *API) Run() {
 	r := a.NewRouter()
-	r.Run(":8080")
+	if err := gateway.ListenAndServe(":8080", r); err != nil {
+		log.Fatal(err)
+	}
 }
